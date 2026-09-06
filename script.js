@@ -1,18 +1,30 @@
 let keranjang = [];
 
 
-function toggleCart() {
-
-    const panel =
-        document.getElementById("cart-panel");
-
-    const overlay =
-        document.getElementById("cart-overlay");
-
-    panel.classList.toggle("active");
-
-    overlay.classList.toggle("active");
+function openCart() {
+    const panel = document.getElementById("cart-panel");
+    const overlay = document.getElementById("cart-overlay");
+    if (panel) panel.classList.add("active");
+    if (overlay) overlay.classList.add("active");
 }
+
+function closeCart() {
+    const panel = document.getElementById("cart-panel");
+    const overlay = document.getElementById("cart-overlay");
+    if (panel) panel.classList.remove("active");
+    if (overlay) overlay.classList.remove("active");
+}
+
+function toggleCart() {
+    const panel = document.getElementById("cart-panel");
+    if (!panel) return;
+    if (panel.classList.contains("active")) {
+        closeCart();
+    } else {
+        openCart();
+    }
+}
+
 
 
 function tambahKeranjang(nama, harga) {
@@ -24,13 +36,7 @@ function tambahKeranjang(nama, harga) {
 
     updateCart();
 
-    document
-        .getElementById("cart-panel")
-        .classList.add("active");
-
-    document
-        .getElementById("cart-overlay")
-        .classList.add("active");
+    openCart();
 }
 
 
@@ -120,4 +126,29 @@ function goProducts() {
         .scrollIntoView({
             behavior: "smooth"
         });
+}
+
+// Checkout melalui WhatsApp
+function checkoutWhatsApp() {
+    if (keranjang.length === 0) {
+        alert("Keranjang masih kosong. Silakan pilih produk terlebih dahulu.");
+        return;
+    }
+
+    const nomorWhatsApp = "6285136498679"; // 085136498679
+    let total = 0;
+
+    const daftarProduk = keranjang.map((item, index) => {
+        total += item.harga;
+        return `${index + 1}. ${item.nama} - Rp${item.harga.toLocaleString("id-ID")}`;
+    }).join("%0A");
+
+    const pesan =
+        `Halo JENOVA, saya ingin melakukan pemesanan.%0A%0A` +
+        `*Daftar Pesanan:*%0A${daftarProduk}%0A%0A` +
+        `*Total: Rp${total.toLocaleString("id-ID")}*%0A%0A` +
+        `Mohon konfirmasi pesanan saya. Terima kasih.`;
+
+    const url = `https://wa.me/${nomorWhatsApp}?text=${pesan}`;
+    window.open(url, "_blank", "noopener,noreferrer");
 }

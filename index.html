@@ -248,7 +248,7 @@
 
 <!-- CART OVERLAY -->
 
-<div id="cart-overlay" onclick="toggleCart()"></div>
+<div id="cart-overlay" onclick="closeCart()"></div>
 
 
 <!-- CART -->
@@ -259,7 +259,7 @@
 
         <h2>Keranjang</h2>
 
-        <button onclick="toggleCart()">
+        <button onclick="closeCart()" aria-label="Tutup keranjang">
             ✕
         </button>
 
@@ -294,8 +294,8 @@
         </div>
 
 
-        <button class="checkout-btn">
-            Checkout
+        <button class="checkout-btn" onclick="checkoutWhatsApp()">
+            Checkout via WhatsApp
         </button>
 
     </div>
