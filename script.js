@@ -8,7 +8,7 @@ const SPREADSHEET_URL = "https://script.google.com/macros/s/AKfycbyepacVfbkV_45w
 // Menggunakan mode "no-cors" (fire-and-forget) supaya tidak diblokir
 // oleh browser dan tidak menghambat proses checkout ke WhatsApp.
 function kirimKeSpreadsheet(items, total, namaPembeli, notelpPembeli) {
-    if (!SPREADSHEET_URL || SPREADSHEET_URL.includes("PASTE_DEPLOYMENT_ID_KAMU_DISINI")) {
+    if (!SPREADSHEET_URL || SPREADSHEET_URL.includes("https://script.google.com/macros/s/AKfycbyepacVfbkV_45wgyG-ovss7f5EP3-maIyhua_k77LNVWcwHkiL4rkzJhtJA0Qb3l98lw/exec")) {
         console.warn("SPREADSHEET_URL belum diatur. Data tidak dikirim ke spreadsheet.");
         return;
     }
