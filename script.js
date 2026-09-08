@@ -2,7 +2,7 @@ let keranjang = [];
 
 // GANTI dengan URL Web App Google Apps Script kamu setelah deploy.
 // Lihat file CARA-SETUP-SPREADSHEET.md untuk panduan lengkap.
-const SPREADSHEET_URL = "https://script.google.com/macros/s/AKfycbyepacVfbkV_45wgyG-ovss7f5EP3-maIyhua_k77LNVWcwHkiL4rkzJhtJA0Qb3l98lw/exec";
+const SPREADSHEET_URL = "https://script.google.com/macros/s/AKfycbwyucN0hC1ZLcPT4avAUy4oRPKI-8WOHZpKLBhc2dV04HGzmnwFTs8-7H-UBu-8eyGx/exec";
 
 // Mengirim data pesanan ke Google Sheet secara otomatis.
 // Menggunakan mode "no-cors" (fire-and-forget) supaya tidak diblokir
